@@ -231,3 +231,4 @@ function readLinks(doc){
     parent.appendChild(col_links);
 }
 
+/*final*/

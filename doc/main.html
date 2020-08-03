@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Lagado</title>
+
+    <!--FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+    <script src="main.js"></script>
+
+</head>
+<body>
+    <!--145DA0-->
+    <!--NAVBAR START-->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: white;" id="top !important">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#top" style="font-family: 'Permanent Marker', cursive; font-size: 2em !important; padding:0px 0px;" >Kyle Lagado</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse navbarfont" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li class="nav-item active">
+                <a class="nav-link" href="#about">ABOUT ME</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#education">EDUCATION</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#organizations">ORGANIZATIONS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#works">WORKS</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#others">OTHERS</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+    <!--NAVBAR END-->
+
+
+    <!--CONTENT-->
+    <div class="container-fluid my-container">
+      <div class="row r1" id="about">
+          <div class="col-md-2"></div>
+          <div class="col-md-4" id="aboutdata">
+            <h2 class>ABOUT ME</h2>
+            <!-- <p class="justify" id="aboutme">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> -->
+          </div>
+          <div class="col-md-4" style="align-self: center">
+            <img src="../img/_MG_0981.JPG" class="img-fluid myimg">
+          </div>
+      </div>
+
+      <div class="row r2" id="education">
+
+        <div class="col-md-12 center" style="padding: 20px 20px;">
+          <h2>EDUCATION</h2>
+        </div>
+
+        <!-- CSA -->
+        <!-- <div class="col-md-12 col-pad-bot">
+          <div class="schooldata">
+              <div class="schoolname" id="school">Colegio San Agustin - Makati</div>
+              <div class="schoolcourse" id="degree">Science, Technology, Engineering and Mathematics (STEM)</div>
+              <div class="schoolyear" id="year_start">2005-2018</div>
+          </div>
+        </div> -->
+
+        <!-- DLSU -->
+        <!-- <div class="col-md-12 col-pad-bot">
+          <div class="schooldata">
+              <div class="schoolname">De La Salle University - Manila</div>
+              <div class="schoolcourse">Bachelor of Science in Information Technology</div>
+              <div class="schoolyear">2018-present</div>
+          </div>
+        </div> -->
+
+      </div>
+
+      <div class="row r3" id="organizations">
+
+        <div class="col-md-12 center" style="padding: 20px 20px;">
+          <h2>ORGANIZATIONS</h2>
+        </div>
+
+
+         <!-- CSG -->
+         <div class="col-md-12 col-pad-bot">
+           <div class="orgdata">
+               <div class="orgname">Computer Studies Government</div>
+               <div class="orgposition">Executive Treasurer</div>
+               <div class="orgyear">2019-Present</div>
+               <div class="orgdesc">
+                 <p class="justify">In charge of expenses during events, projects. Coordinates with sponsor organizations in terms of funds, etc.</p>
+               </div>
+           </div>
+         </div>
+ 
+         <!-- ELEVATE -->
+         <div class="col-md-12 col-pad-bot">
+           <div class="orgdata">
+               <div class="orgname">Elevate</div>
+               <div class="orgposition">Ushering Team, DGM Team</div>
+               <div class="orgyear">2019-Present</div>
+               <div class="orgdesc">Ushers attendees during an event. In charge of monitoring disciple groups and their performance.</div>
+           </div>
+         </div>
+
+          <!-- DLSU SPORTS -->
+          <div class="col-md-12 col-pad-bot">
+            <div class="orgdata">
+                <div class="orgname">DLSU Sports</div>
+                <div class="orgposition">Writing Team</div>
+                <div class="orgyear">2020-Present</div>
+                <div class="orgdesc">Watches UAAP games of the school. Interviews the players after the game. Write an article about the game.</div>
+            </div>
+          </div>
+          
+      
+      </div>
+
+      <div class="row r4" id="works">
+
+        <div class="col-md-12 center" style="padding:20px 20px;">
+          <h2>WORKS</h2>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="workdata">
+            <div class="workname">
+              Spirograph using C
+            </div>
+            <div class="workdesc">
+              <p class="center">This project was created using C language and a tool called GLE.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="workdata">
+            <div class="workname">
+              Java Application
+            </div>
+            <div class="workdesc">
+              <p class="center">Created a transportation system application using Java MVC model.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="workdata">
+            <div class="workname">
+              Network System Prototype
+            </div>
+            <div class="workdesc">
+              <p class="center">Created a network design for a idea company.</p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <div class="row r5" id="others">
+        <div class="col-md-12 center" style="padding:20px 20px;">
+          <h2>OTHERS</h2>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="otherdata">
+            <div>
+              <h3 class="othername">Facebook</h3>
+            </div>
+            <div>
+              <span class="otherlink"><a href="https://facebook.com/kylelagado17">facebook.com/kylelagado17</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="otherdata">
+            <div>
+              <h3 class="othername">Twitter</h3>
+            </div>
+            <div>
+              <span class="otherlink"><a href="facebook.com/kylelagado17">instagram.com/kylelagado17</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 center">
+          <div class="otherdata">
+            <div>
+              <h3 class="othername">Instagram</h3>
+            </div>
+            <div>
+              <span class="otherlink"><a href="facebook.com/kylelagado17">twitter.com/kylelagado17</a></span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+   
+
+ 
+</body>
+</html>

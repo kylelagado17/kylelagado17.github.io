@@ -70,8 +70,7 @@ ul li:hover{
 /* row education */
 .r2{
     padding:10px 10px;
-    /* background-color:#C4C7D2; */
-    background-color:white;
+    background-color:black;
 }
 
 .schoolimg{
@@ -166,4 +165,9 @@ ul li:hover{
 .linkdata{
     display:grid;
     grid-template-rows: auto auto;
+}
+
+
+.white{
+    color: white;
 }

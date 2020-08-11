@@ -229,6 +229,7 @@ function readLinks(doc){
     span.appendChild(a);
 
     parent.appendChild(col_links);
+
 }
 
 /*final*/

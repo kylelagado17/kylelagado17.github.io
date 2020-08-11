@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="edit.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+    
+
+</head>
+<body style="background-color: #C4C7D2;">
+    
+    <br><br>
+    <div class="center" id="btn_login">
+    <button type="button" data-toggle="modal" data-target="#loginModal" style="background-color: beige;">Login</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal fade" id="loginModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1>Login</h1>
+                            </div>
+                            <div class="modal-body">
+                                <label for="#email">Email</label>
+                                <input type="text" id="email" placeholder="Enter email">
+                                <br>
+                                <label for="#email">Password</label>
+                                <input type="password" id="password" placeholder="Enter password">
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" data-dismiss="modal">Close</button> -->
+                                <button type="button" id="btn_login" onclick="login()">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="edit" style="background-color: #C4C7D2;">
+        <h1 class="center" style="background-color: black; color:white">ADD</h1>
+        <div class="row">
+            <!--EDUCATION-->
+            <div class="col-md-4">
+                <form id="educ">
+                    <h2>Add School</h2>
+                    <input type="text" name="school" placeholder="School name" id="school" size="30">
+                    <br>
+                    <input type="text" name="degree" placeholder="Degree" id="degree" size="30">
+                    <br>
+                    <input type="text" name="educ_year_start" placeholder="Year start" id="educ_year_start" size="10">
+                    <br>
+                    <input type="text" name="educ_year_end" placeholder="Year end" id="educ_year_end" size="10">
+                    <br><br>
+                    <button type="button" id="btn_educ" onclick="addSchool()" style="background-color: beige;">Add School</button>
+                </form>
+            </div>
+
+            <!--ORGANIZATION-->
+            <div class="col-md-4">
+                <form id="org">
+                    <h2>Add Organization</h2>
+                    <input type="text" name="organization" placeholder="Org name" id="organization" size="30">
+                    <br>
+                    <input type="text" name="position" placeholder="Position" id="position" size="30">
+                    <br>
+                    <input type="text" name="org_year_start" placeholder="Year start" id="org_year_start" size="10">
+                    <br>
+                    <input type="text" name="org_year_end" placeholder="Year end" id="org_year_end" size="10">
+                    <br><br>
+                    <button type="button" id="btn_org" onclick="addOrg()" style="background-color: beige;">Add Organization</button>
+                </form>
+            </div>
+            
+            
+            <!--WORKS-->
+            <div class="col-md-4">
+                <form id="work">
+                    <h2>Add Work</h2>
+                    <input type="text" name="workname" placeholder="Name" id="workname" size="30">
+                    <br>
+                    <textarea type="text" name="description" placeholder="Description" id="description" size="30" style="line-height: 1em;"></textarea>
+                    <br><br>
+                    <button type="button" id="btn_work" onclick="addWork()" style="background-color: beige;">Add Work</button>
+                </form>
+            </div>
+            
+        </div>
+        <br><br><br>
+        <h1 class="center" style="background-color: black; color:white">EDIT</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Edit Intro</h2>
+                <form id="intro">
+                    <textarea type="text" name="introduction" placeholder="Introduction" id="introduction" size="50" style="line-height: 1em; width:450px"></textarea>
+                    <br><br>
+                    <button type="button" id="btn_intro" onclick="editIntro()" style="background-color: beige;">Edit Intro</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Edit Links</h2>
+                <form id="links">
+                    <input type="text" name="github" placeholder="Github link" id="github">
+                    <button type="button" id="btn_github" onclick="editGithub()" style="background-color: beige;">Edit Github</button>
+                    <br>
+                    <input type="text" name="linkedin" placeholder="LinkedIn link" id="linkedin">
+                    <button type="button" id="btn_linkedin" onclick="editLinkedin()" style="background-color: beige;">Edit LinkedIn</button>
+                    <br>
+                    <input type="text" name="Twitter" placeholder="Twitter link" id="twitter">
+                    <button type="button" id="btn_twitter" onclick="editTwitter()" style="background-color: beige;">Edit Twitter</button>
+                    <br><br>
+                </form>
+                
+            </div>
+        </div>
+
+        <h1 class="center" style="background-color: black; color:white">DELETE</h1>
+        <div class="row">
+            <div class="col-md-12">
+                
+                <h2>Education</h2>
+                <div id="education-list">
+                </div>
+
+                <br><br>
+
+                <h2>Organizations</h2>
+                <div id="organization-list">
+                </div>
+
+                <br><br>
+
+                <h2>Works</h2>
+                <div id="work-list">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    
+     <!-- jQuery library -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+     <!-- Popper JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ 
+     <!-- Latest compiled JavaScript -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+     <script src="edit.js"></script>
+</body>
+</html>

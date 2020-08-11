@@ -40,15 +40,15 @@
     // });
 
     //add data
-    // db.collection("organizations").add({
-    //     name: "IEEE",
-    //     position: "member",
-    //     year_start: "2014",
-    //     year_end: "2020"
-    // })
-    // .then(function(doc){
-    //     console.log("Item added with the ID " + doc.id);
-    // })
+    db.collection("educations").add({
+        school: "IEEE",
+        degree: "member",
+        year_start: "2014",
+        year_end: "2020"
+    })
+    .then(function(doc){
+        console.log("Item added with the ID " + doc.id);
+    })
 
     //delete data
     // db.collection("organizations").doc("ZJZ7aJhQC8azU153Q0fa").delete().then(function(){

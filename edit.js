@@ -307,24 +307,37 @@ function readWork(doc){
     })
 }
 
+var input = document.getElementById("logincontainer");
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("btn_login2").click();
+    }
+  });
+
 function login(){
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
-        alert("Login successful!");
+        
         document.getElementById("btn_login").setAttribute("class", "hide");
         document.getElementById("edit").classList.remove("hide");
+        $('#loginModal').modal('hide');
+        document.getElementById("logincontainer").reset();
         var user = firebase.auth().currentUser;
         if(user!=null){
-            console.log(user.email);
+            
         }
     }).catch(function(err){
         if(err.code == "auth/wrong-password"){
             alert("Wrong password");
+            document.getElementById("logincontainer").reset();
         }
-        else   
+        else{   
             alert(err.message);
+            document.getElementById("logincontainer").reset();
+        }   
     });
 
 

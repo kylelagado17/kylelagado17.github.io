@@ -36,9 +36,8 @@ ul li:hover{
 .r1{
     position: relative;
     padding:10px 10px;
-    /* height: 550px;
-    align-content: center;
-     */
+    background-color: black;
+    color: white;
 }
 
 /*bg img*/
@@ -71,6 +70,7 @@ ul li:hover{
 .r2{
     padding:10px 10px;
     background-color:black;
+    /* position: relative; */
 }
 
 .schoolimg{
@@ -95,12 +95,12 @@ ul li:hover{
 }
 
 
-/* row about me */
+/* row orgs */
 .r3{
     position: relative;
     padding:10px 10px;
-    /* background-color:#C4C7D2; */
-    
+    background-color:black;
+    color:white;
 }
 
 /*bg img*/
@@ -145,7 +145,6 @@ ul li:hover{
 .r4{
     padding: 10px 10px;
     background-color:#C4C7D2;
-    
 }
 
 .workdata{
@@ -160,6 +159,24 @@ ul li:hover{
     padding: 10px 10px;
     background-color:black;
     color: white;
+    position: relative;
+}
+
+.r5::before{
+    content: '' ;
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background-image: url("webdev3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .4;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    height: 100%;
 }
 
 .linkdata{
@@ -170,4 +187,10 @@ ul li:hover{
 
 .white{
     color: white;
+}
+
+#particles-js {
+    position : absolute;
+    width:100%;
+    height:100%;
 }

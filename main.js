@@ -18,11 +18,24 @@ var db = firebase.firestore();
 
 
 //read about me/intro
-db.collection("intro").get().then((snapshot) =>{
-    snapshot.docs.forEach(doc =>{
-        readAboutMe(doc);
+db.collection("intro").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    let parent = document.getElementById("aboutdata");
+
+    db.collection("intro").get().then((snapshot) =>{
+        snapshot.docs.forEach(doc =>{
+            readAboutMe(doc);
+        })
+    })
+
+    changes.forEach(change => {
+        if(change.type == "modified"){
+            let div = document.getElementById("intro");
+            parent.removeChild(div);
+        }
     })
 })
+
 
 function readAboutMe(doc){
     let parent = document.getElementById("aboutdata");
@@ -31,19 +44,28 @@ function readAboutMe(doc){
     //create p
     let p = document.createElement("p");
     p.classList.add("justify");
-    p.setAttribute("id", "aboutme");
-
+    p.setAttribute("id", doc.id);
     p.innerHTML = data.desc;
 
     parent.appendChild(p);
 }
 
 //read each document from education
-db.collection("educations").get().then((snapshot) =>{
-        snapshot.docs.forEach(doc =>{
-            readEducation(doc);
-        })
-});
+db.collection("educations").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    let parent = document.getElementById("education");
+
+    changes.forEach(change => {
+        if(change.type == "added"){
+            readEducation(change.doc);
+        }
+        else if(change.type == "removed"){
+            let div = document.querySelector('[educ-id=' + change.doc.id +']');
+            parent.removeChild(div);
+        }
+    })
+})
+
 
 function readEducation(doc){
 
@@ -54,6 +76,7 @@ function readEducation(doc){
     let col_educ = document.createElement("div");
     col_educ.classList.add("col-md-12");
     col_educ.classList.add("col-pad-bot");
+    col_educ.setAttribute("educ-id", doc.id);
 
     //school data container
     let school_data = document.createElement("div");
@@ -88,11 +111,20 @@ function readEducation(doc){
 }
 
  //read each document from organization
-db.collection("organizations").get().then((snapshot) =>{
-    snapshot.docs.forEach(doc =>{
-    readOrganization(doc);
+db.collection("organizations").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    let parent = document.getElementById("organizations");
+
+    changes.forEach(change => {
+        if(change.type == "added"){
+            readOrganization(change.doc);
+        }
+        else if(change.type == "removed"){
+            let div = document.querySelector('[org-id=' + change.doc.id +']');
+            parent.removeChild(div);
+        }
     })
-});
+})
 
 function readOrganization(doc){
 
@@ -103,6 +135,7 @@ function readOrganization(doc){
     let col_org = document.createElement("div");
     col_org.classList.add("col-md-12");
     col_org.classList.add("col-pad-bot");
+    col_org.setAttribute("org-id", doc.id);
 
     //org data container
     let org_data = document.createElement("div");
@@ -136,11 +169,20 @@ function readOrganization(doc){
 };
 
 
-db.collection("works").get().then((snapshot) =>{
-    snapshot.docs.forEach(doc =>{
-        readWorks(doc);
+db.collection("works").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    let parent = document.getElementById("works");
+
+    changes.forEach(change => {
+        if(change.type == "added"){
+            readWorks(change.doc);
+        }
+        else if(change.type == "removed"){
+            let div = document.querySelector('[work-id=' + change.doc.id +']');
+            parent.removeChild(div);
+        }
     })
-});
+})
 
 function readWorks(doc){
 
@@ -151,6 +193,7 @@ function readWorks(doc){
     let col_work = document.createElement("div");
     col_work.classList.add("col-md-4");
     col_work.classList.add("center");
+    col_work.setAttribute("work-id", doc.id);
 
     //work data container
     let work_data = document.createElement("div");
@@ -184,13 +227,40 @@ function readWorks(doc){
 }
 
 
-db.collection("links").get().then((snapshot) =>{
-    snapshot.docs.forEach(doc =>{
-        readLinks(doc);
+db.collection("links").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    let parent = document.querySelector("links");
+    
+    changes.forEach(change => {
+        
+        if(change.type == "added"){
+            readLinks(change.doc);
+        }
+        else if(change.type == "modified"){
+            removeLinks();
+
+            db.collection("links").get().then((snapshot) =>{
+                snapshot.docs.forEach(doc =>{
+                    readLinks(doc);
+                })
+            });
+            
+        } 
     })
-});
+   
+})
 
+function removeLinks(){
+    let parent = document.getElementById("links");
 
+    let github = document.getElementById("i6DxFWZmy999vTNViKhv");
+    let linkedin = document.getElementById("jK1CFxafRHBHKm41mzz3");
+    let twitter = document.getElementById("krb77upeAEJ51KXVxJV8");
+
+    parent.removeChild(github);
+    parent.removeChild(linkedin)
+    parent.removeChild(twitter);
+}
 
 function readLinks(doc){
 
@@ -201,10 +271,13 @@ function readLinks(doc){
     let col_links = document.createElement("div");
     col_links.classList.add("col-md-4");
     col_links.classList.add("center");
+    col_links.setAttribute("id", doc.id);
 
     //links data container
      let link_data = document.createElement("div");
      link_data.classList.add("linkdata");
+     link_data.classList.add("linkval");
+    
 
     //link name
     let link_name = document.createElement("div");
@@ -213,9 +286,9 @@ function readLinks(doc){
 
     let link_val = document.createElement("div");
     let span = document.createElement("span");
-    span.classList.add("linkval");
     let a = document.createElement("a");
     a.setAttribute("href", data.link);
+    a.setAttribute("target", "_blank");
     
 
     h3.innerHTML = data.name;

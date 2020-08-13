@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
+    <title>Edit Portfolio</title>
+    <link rel="icon" type="image/png" href="logo.png">
 
     <!--FONTS-->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap" rel="stylesheet">
@@ -27,23 +28,25 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="loginform">
                 <div class="modal fade" id="loginModal">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1>Login</h1>
                             </div>
-                            <div class="modal-body">
-                                <label for="#email">Email</label>
-                                <input type="text" id="email" placeholder="Enter email">
-                                <br>
-                                <label for="#email">Password</label>
-                                <input type="password" id="password" placeholder="Enter password">
-                            </div>
+                            <form id="logincontainer">
+                                <div class="modal-body">
+                                    <label for="#email">Email</label>
+                                    <input type="text" id="email" placeholder="Enter email">
+                                    <br>
+                                    <label for="#email">Password</label>
+                                    <input type="password" id="password" placeholder="Enter password">
+                                </div>
+                            </form>
                             <div class="modal-footer">
                                 <!-- <button type="button" data-dismiss="modal">Close</button> -->
-                                <button type="button" id="btn_login" onclick="login()">Login</button>
+                                <button type="button" id="btn_login2" onclick="login()">Login</button>
                             </div>
                         </div>
                     </div>

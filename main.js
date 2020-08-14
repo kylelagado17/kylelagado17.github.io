@@ -267,16 +267,26 @@ function readLinks(doc){
     let parent = document.getElementById("links");
     let data = doc.data();
     let i = document.createElement("i");
+    let a2 = document.createElement("a");
 
     if(data.icon == "github"){
+        a2.setAttribute("href", data.link);
+        a2.setAttribute("target", "_blank");
+        a2.setAttribute("style", "color:white;");
         i.setAttribute("class", "fab fa-github");
         i.setAttribute("style", "font-size:50px;");
     }
     if(data.icon == "linkedin"){
+        a2.setAttribute("href", data.link);
+        a2.setAttribute("target", "_blank");
+        a2.setAttribute("style", "color:white;");
         i.setAttribute("class", "fab fa-linkedin");
         i.setAttribute("style", "font-size:50px;");
     }
     if(data.icon == "twitter"){
+        a2.setAttribute("href", data.link);
+        a2.setAttribute("target", "_blank");
+        a2.setAttribute("style", "color:white;");
         i.setAttribute("class", "fab fa-twitter");
         i.setAttribute("style", "font-size:50px;");
     }
@@ -306,7 +316,8 @@ function readLinks(doc){
 
     
     col_links.appendChild(link_data);
-    link_data.appendChild(i);
+    a2.appendChild(i);
+    link_data.appendChild(a2);
     link_data.appendChild(link_name);
     link_name.appendChild(h3);
     h3.appendChild(a);

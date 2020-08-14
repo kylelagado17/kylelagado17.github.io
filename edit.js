@@ -325,6 +325,7 @@ function login(){
         document.getElementById("edit").classList.remove("hide");
         $('#loginModal').modal('hide');
         document.getElementById("logincontainer").reset();
+        alert("Login successful!");
         var user = firebase.auth().currentUser;
         if(user!=null){
             

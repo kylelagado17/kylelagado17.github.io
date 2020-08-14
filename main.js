@@ -287,19 +287,25 @@ function readLinks(doc){
     let link_val = document.createElement("div");
     let span = document.createElement("span");
     let a = document.createElement("a");
+    let a2 = document.createElement("a");
     a.setAttribute("href", data.link);
     a.setAttribute("target", "_blank");
+    a.setAttribute("style", "color:white;");
+    a2.setAttribute("href", data.link);
+    a2.setAttribute("target", "_blank");
+    a2.setAttribute("style", "color:white;");
     
-
-    h3.innerHTML = data.name;
+    a2.innerHTML = data.name
+    // h3.innerHTML = data.name;
     a.innerHTML = data.link;
 
     col_links.appendChild(link_data);
     link_data.appendChild(link_name);
     link_name.appendChild(h3);
-    link_data.appendChild(link_val);
-    link_val.appendChild(span);
-    span.appendChild(a);
+    h3.appendChild(a2);
+    // link_data.appendChild(link_val);
+    // link_val.appendChild(span);
+    // span.appendChild(a);
 
     parent.appendChild(col_links);
 

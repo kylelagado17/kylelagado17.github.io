@@ -266,6 +266,20 @@ function readLinks(doc){
 
     let parent = document.getElementById("links");
     let data = doc.data();
+    let i = document.createElement("i");
+
+    if(data.icon == "github"){
+        i.setAttribute("class", "fab fa-github");
+        i.setAttribute("style", "font-size:50px;");
+    }
+    if(data.icon == "linkedin"){
+        i.setAttribute("class", "fab fa-linkedin");
+        i.setAttribute("style", "font-size:50px;");
+    }
+    if(data.icon == "twitter"){
+        i.setAttribute("class", "fab fa-twitter");
+        i.setAttribute("style", "font-size:50px;");
+    }
 
     //col-md-4
     let col_links = document.createElement("div");
@@ -284,31 +298,22 @@ function readLinks(doc){
     let h3 = document.createElement("h3");
     h3.classList.add("linkname");
 
-    let link_val = document.createElement("div");
-    let span = document.createElement("span");
     let a = document.createElement("a");
-    let a2 = document.createElement("a");
     a.setAttribute("href", data.link);
     a.setAttribute("target", "_blank");
     a.setAttribute("style", "color:white;");
-    a2.setAttribute("href", data.link);
-    a2.setAttribute("target", "_blank");
-    a2.setAttribute("style", "color:white;");
-    
-    a2.innerHTML = data.name
-    // h3.innerHTML = data.name;
-    a.innerHTML = data.link;
+    a.innerHTML = data.name;
 
+    
     col_links.appendChild(link_data);
+    link_data.appendChild(i);
     link_data.appendChild(link_name);
     link_name.appendChild(h3);
-    h3.appendChild(a2);
-    // link_data.appendChild(link_val);
-    // link_val.appendChild(span);
-    // span.appendChild(a);
+    h3.appendChild(a);
 
     parent.appendChild(col_links);
 
+    
 }
 
 /*final*/
